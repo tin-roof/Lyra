@@ -1,0 +1,86 @@
+// TODO: Work on inner column widths some more to adjust their sizeing
+// TODO: Maybe another break point or 2? - To smooth out the shrink
+
+// column width for h
+.columnWidth(@column, @size) when (@size = "h") and (@column = 1), (@column = 2) {
+    max-width: 50%;
+}
+.columnWidth(@column, @size) when (@size = "h") and (@column >= 3) {
+    max-width: 100%;
+}
+// column width for tt break
+.columnWidth(@column, @size) when (@size = "tt") and (@column = 1) {
+    max-width: 25%;
+}
+.columnWidth(@column, @size) when (@size = "tt") and (@column = 2) {
+    max-width: 33.333%;
+}
+.columnWidth(@column, @size) when (@size = "tt") and (@column = 3), (@column = 4) {
+    max-width: 50%;
+}
+.columnWidth(@column, @size) when (@size = "tt") and (@column >= 5) {
+    max-width: 100%;
+}
+// column width for tq break
+.columnWidth(@column, @size) when (@size = "tq") {
+    max-width: (100% / @columns) * @column;
+}
+
+.col {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    float: left;
+}
+
+@media screen and (min-width: @qBreak) {
+}
+
+@media screen and (min-width: @tBreak) {
+}
+
+@media screen and (min-width: @hBreak) {
+    @size: "h";
+
+    // loop through the classes and set the width
+    .column-loop(@column) when not(@column > @columns) {
+        .col-@{column} {
+            .columnWidth(@column, @size);
+        }
+        .column-loop(@column + 1);
+    }
+
+    .column-loop(@column: 1);
+}
+
+@media screen and (min-width: @ttBreak) {
+    @size: "tt";
+
+    // loop through the classes and set the width
+    .column-loop(@column) when not(@column > @columns) {
+        .col-@{column} {
+            .columnWidth(@column, @size);
+        }
+        .column-loop(@column + 1);
+    }
+
+    .column-loop(@column: 1);
+}
+
+
+@media screen and (min-width: @tqBreak) {
+    @size: "tq";
+
+    // loop through the classes and set the width
+    .column-loop(@column) when not(@column > @columns) {
+        .col-@{column} {
+            .columnWidth(@column, @size);
+        }
+        .column-loop(@column + 1);
+    }
+
+    .column-loop(@column: 1);
+}
+
+@media screen and (min-width: @pageSize) {
+}

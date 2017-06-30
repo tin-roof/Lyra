@@ -1,0 +1,41 @@
+/**
+ * Lyra Less Settings
+ */
+
+// page sizing
+@pageSize: 72em; // if using columns page size should be divisible by @columns
+@headerHeight: 11em;
+@footerHeight: 4em;
+
+// breakpoints
+@qBreak: (@pageSize * 0.250);  // 1/4 page size
+@tBreak: (@pageSize * 0.333);  // 1/3 page size
+@hBreak: (@pageSize * 0.500);  // 1/2 page size
+@ttBreak: (@pageSize * 0.666); // 2/3 page size
+@tqBreak: (@pageSize * 0.750); // 3/4 page size
+
+// font options
+@defaultFontColor: #000000;
+@defaultFontSize: 1em;
+@defaultFontFamily: 'Open Sans';
+
+// page colors
+@defaultHeaderColor: #ffffff;
+@defaultFooterColor: #ffffff;
+@defaultBackgroundColor: #ffffff;
+@defaultBodyBackgroundColor: #ffffff;
+
+// grid
+@columns: 12;
+
+// charts
+// timeline
+// TODO: figure out categories for timeline events
+@timelineColor: lightblue;
+@monthColor: lightblue; // if adding custom colors for months dont forget to add the border-right color to :before
+
+// bar
+// TODO: figure out categories for bars
+@barColor: lightblue;
+
+// slider
